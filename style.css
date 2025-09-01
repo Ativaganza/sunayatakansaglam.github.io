@@ -1,0 +1,87 @@
+body {
+    font-family: 'Dancing Script', cursive; /* Veya kullandığın diğer font */
+    background-color: #f4e8d3; /* Arkaplan rengi, görsel yüklenmezse diye */
+    background-image: url('orman-arkaplan.jpg'); /* Yeni arkaplan görseli */
+    background-repeat: no-repeat; /* Tekrar etmesin */
+    background-size: cover; /* Sayfayı kaplasın */
+    background-position: center center; /* Ortalanmış olsun */
+    background-attachment: fixed; /* Sayfa kaydırıldığında görsel sabit kalsın */
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header {
+    background-color: rgba(70, 130, 180, 0.7); /* Mavi rengin şeffaf tonu */
+    color: white;
+    text-align: center;
+    padding: 60px 20px; /* Üstten ve alttan boşluğu artırarak daha büyük görünmesini sağlarız */
+    margin-bottom: 40px; /* Ana içerikten daha fazla boşluk bırakırız */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Diğer kutularla uyumlu gölge */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Yazıya gölge veririz */
+}
+
+.main-header h1 {
+    font-family: 'Dancing Script', cursive; /* Başlık fontunu değiştiririz */
+    font-size: 3.5em; /* Başlığı daha da büyütürüz */
+    margin: 0;
+}
+
+.main-header p {
+    font-size: 1.5em; /* Açıklama yazısını büyütürüz */
+    margin: 10px 0 0;
+}
+
+.content-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.story-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.story-section h2 {
+    color: #4682b4;
+    font-size: 2em;
+    border-bottom: 2px solid #4682b4;
+    padding-bottom: 10px;
+}
+
+.story-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.story-content img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.story-content p {
+    flex: 1;
+}
+
+.main-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4682b4;
+    color: rgb(255, 255, 255);
+    margin-top: 40px;
+}
+.story-content img {
+    width: 400px; /* Daha büyük bir boyut deneyelim */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
