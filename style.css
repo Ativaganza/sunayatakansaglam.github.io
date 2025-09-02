@@ -62,7 +62,7 @@ body {
 }
 
 .story-content img {
-    width: 250px;
+    width: px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -85,3 +85,31 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+/* Animasyon için anahtar kareler */
+@keyframes slideInUp {
+    from {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Her bölüme animasyon ekleme */
+.story-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    animation: slideInUp 1s ease-out forwards;
+    opacity: 0; /* Başlangıçta gizli olsun */
+}
+
+/* Her bölüme farklı gecikme verme */
+.story-section:nth-child(2) { animation-delay: 0.5s; }
+.story-section:nth-child(3) { animation-delay: 1s; }
+.story-section:nth-child(4) { animation-delay: 1.5s; }
+.story-section:nth-child(5) { animation-delay: 2s; }
