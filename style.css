@@ -13,14 +13,14 @@ body {
 }
 
 .main-header {
-    background-color: rgba(70, 130, 180, 0.7); /* Mavi rengin şeffaf tonu */
-    color: white;
+    background-color: rgb(255, 255, 255); /* Yumuşak toprak/bej rengi, hafif şeffaf */
+    color: #f7f7f7; /* Yazı rengini siyaha yakın bir tona çevirelim, daha uyumlu olur */
     text-align: center;
-    padding: 60px 20px; /* Üstten ve alttan boşluğu artırarak daha büyük görünmesini sağlarız */
-    margin-bottom: 40px; /* Ana içerikten daha fazla boşluk bırakırız */
+    padding: 60px 20px;
+    margin-bottom: 40px;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Diğer kutularla uyumlu gölge */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Yazıya gölge veririz */
+    box-shadow: 0 8px 16px rgb(251, 251, 251);
+    text-shadow: none; /* Yazı gölgesini kaldıralım, yeni renkle uyumlu olmayabilir */
 }
 
 .main-header h1 {
@@ -62,10 +62,13 @@ body {
 }
 
 .story-content img {
-    width: px;
-    height: auto;
+    width: 100%; /* İçinde bulunduğu kutunun genişliğini kaplasın */
+    max-width: 600px; /* Maksimum 600 piksel genişliğe kadar büyüsün */
+    height: auto; /* Oranını korur */
+    display: block; /* Ortalamayı sağlar */
+    margin: 0 auto 20px auto; /* Resmi ortalar ve altına boşluk bırakır */
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .story-content p {
@@ -113,3 +116,42 @@ body {
 .story-section:nth-child(3) { animation-delay: 1s; }
 .story-section:nth-child(4) { animation-delay: 1.5s; }
 .story-section:nth-child(5) { animation-delay: 2s; }
+/* Başlık köşelerindeki detay görselleri */
+.header-kose-detay {
+    position: absolute;
+    top: 20px;
+    width: 150px;   /* boyutu büyüttük */
+    height: 150px;  /* kare olacak şekilde */
+    z-index: 10;
+    opacity: 0.95;  /* daha net gözüksün */
+    border-radius: 50%; /* yuvarlak yapar */
+    border: 4px solid #fff; /* beyaz çerçeve */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* gölge efekti */
+    object-fit: cover; /* resim bozulmadan ortalanır */
+    background-color: #fff; /* görselin etrafına temiz bir fon */
+}
+
+
+/* Sol köşedeki detay görseli */
+.header-kose-detay.sol {
+    left: 100px; /* Sol kenardan boşluk */
+}
+
+/* Sağ köşedeki detay görseli */
+.header-kose-detay.sag {
+    right: 100px; /* Sağ kenardan boşluk */
+}
+
+/* Başlık bölümünün pozisyonunu ayarla ki içerisindeki elemanlar buna göre konumlanabilsin */
+.main-header {
+    position: relative; /* Bu çok önemli! İçindeki absolute elemanlar buna göre konumlanır */
+    background-color: rgba(210, 180, 140, 0.8);
+    color: #333;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-shadow: none;
+    overflow: hidden; /* Eğer görsel başlık kutusundan dışarı taşarsa gizler */
+}
