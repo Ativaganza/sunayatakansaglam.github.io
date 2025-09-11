@@ -9,10 +9,8 @@
 <body>
 
     <header class="main-header">
-    <img src="sol-kose-detay.png" alt="Sol köşe detayı" class="header-kose-detay sol">
     <h1>Benim Güzel Ezgi Şefim</h1>
     <p>Hayatımın en güzel anılarına "çocukluk dönemi" ortak olan, beni tekrardan hayata döndüren en değerli varlığımsın.</p>
-    <img src="sag-kose-detay.png" alt="Sağ köşe detayı" class="header-kose-detay sag">
 </header>
 
     <main class="content-container">
@@ -56,4 +54,39 @@
                 <p>O gün hayatımın geri kalanını şekillendirecek ilk adımı atmıştım. Buluşma yerine giderken kalbim yerinden çıkacak gibiydi. Seni gördüğüm o ilk an, sanki dünya durmuş gibiydi. Ne diyeceğimi bilemedim, sadece gülümseyebildim. O günden sonra her şey değişti. O ilk buluşma, aramızdaki bağın ne kadar özel ve güçlü olacağının ilk işaretiydi.</p>
             </div>
         </section>
-  
+  </section> <section class="story-section">
+            <h2>Luna ile Tanışma: Sana Bir Kez Daha Aşık Oldum</h2>
+            <div class="story-content">
+                <img src="kopek.jpg" alt="Ezgi'nin köpeği ile tanışma">
+                <p>Bugün senin küçük dostunla tanışmak, hayatımın en güzel anılarından biri oldu. Onun beni ne kadar çabuk sevdiğini görünce, içimden 'Sana bir kez daha aşık oldum' diye geçirdim. O kadar sıcakkanlı ve sevimli ki, tıpkı senin gibi. Bu an, aramızdaki bağın ne kadar özel olduğunu bana bir kez daha gösterdi.Luna ve Seninle ömrümün sonuna kadar vakit geçirmek istiyorum.Tabi ki Parisi'de unutmamak gerekiyor. </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Ati'nin tüm hakları Ezgiye aittir &copy; 17 Ağustos 2025</p>
+    </footer>
+
+    <div class="maymun-kose" onclick="maymunZiplat()">
+  <img src="maymun-yeni.png" alt="Maymun" width="100" height="100" style="border-radius: 50%;">
+  <div class="maymun-baloncuk" id="maymunBaloncuk">Merhaba! 🦍</div>
+</div>
+
+    <script>
+function maymunZiplat() {
+    var maymun = document.querySelector('.maymun-kose');
+    var baloncuk = document.getElementById('maymunBaloncuk');
+    maymun.classList.add('ziplayan');
+    maymun.classList.add('baloncuk-goster');
+    baloncuk.textContent = "Seni çok seviyorum Ezgi Şef! 🍌";
+    setTimeout(function() {
+        maymun.classList.remove('ziplayan');
+    }, 600);
+    setTimeout(function() {
+        maymun.classList.remove('baloncuk-goster');
+    }, 2000);
+}
+</script>
+
+</body>
+</html>

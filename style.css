@@ -116,12 +116,13 @@ body {
 .story-section:nth-child(3) { animation-delay: 1s; }
 .story-section:nth-child(4) { animation-delay: 1.5s; }
 .story-section:nth-child(5) { animation-delay: 2s; }
+.story-section:nth-child(6) { animation-delay: 2s; }
 /* Başlık köşelerindeki detay görselleri */
 .header-kose-detay {
     position: absolute;
     top: 20px;
     width: 150px;   /* boyutu büyüttük */
-    height: 150px;  /* kare olacak şekilde */
+    height: 120px;  /* kare olacak şekilde */
     z-index: 10;
     opacity: 0.95;  /* daha net gözüksün */
     border-radius: 50%; /* yuvarlak yapar */
@@ -154,4 +155,121 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     text-shadow: none;
     overflow: hidden; /* Eğer görsel başlık kutusundan dışarı taşarsa gizler */
+    /* ...existing code... */
+.fotograf-buton {
+    padding: 10px 24px;
+    background-color: #f8f2e9;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background 0.2s;
+}
+.fotograf-buton:hover {
+    background-color: #ffa500;
+}
+/* ...existing code... */
+}/* ...existing code... */
+
+/* Mobil uyumluluk için eklemeler */
+@media (max-width: 700px) {
+    .content-container {
+        padding: 0 8px;
+        margin: 20px auto;
+        max-width: 100%;
+    }
+
+    .main-header {
+        padding: 30px 8px;
+        font-size: 1em;
+    }
+
+    .main-header h1 {
+        font-size: 2em;
+    }
+
+    .main-header p {
+        font-size: 1em;
+    }
+
+    .story-section {
+        padding: 16px;
+        margin-bottom: 18px;
+    }
+
+    .story-section h2 {
+        font-size: 1.2em;
+        padding-bottom: 6px;
+    }
+
+    .story-content,
+    .story-content-tekli {
+        flex-direction: column !important;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .story-content img,
+    .story-content-tekli img {
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto 12px auto !important;
+        display: block;
+    }
+
+    .header-kose-detay {
+        width: 80px;
+        height: 80px;
+        top: 8px;
+    }
+    .header-kose-detay.sol { left: 10px; }
+    .header-kose-detay.sag { right: 10px; }
+
+    .main-footer {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+}
+.maymun-kose {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 99;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.maymun-kose.ziplayan {
+    animation: ziplama 0.6s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes ziplama {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-40px) scale(1.1); }
+    50%  { transform: translateY(-60px) scale(1.15); }
+    70%  { transform: translateY(-40px) scale(1.1);}
+    100% { transform: translateY(0); }
+}
+
+.maymun-baloncuk {
+    position: absolute;
+    bottom: 90px;
+    right: 0;
+    background: #fffbe7;
+    color: #333;
+    border-radius: 16px;
+    padding: 10px 18px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    font-family: 'Dancing Script', cursive;
+}
+
+.maymun-kose.baloncuk-goster .maymun-baloncuk {
+    opacity: 1;
 }
