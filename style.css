@@ -41,44 +41,47 @@ body {
 }
 
 .story-section {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    background: #fffbe7;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
 }
 
 .story-section h2 {
-    color: #4682b4;
+    font-family: 'Oswald', sans-serif;
     font-size: 2em;
-    border-bottom: 2px solid #4682b4;
-    padding-bottom: 10px;
+    color: #4e3b1f;
+    margin-bottom: 18px;
+    text-align: center;
 }
 
-.story-content {
+.story-content, .story-content-tekli {
     display: flex;
-    gap: 30px;
+    flex-direction: column;
     align-items: center;
+    gap: 18px;
 }
 
-.story-content img {
-    width: 100%; /* İçinde bulunduğu kutunun genişliğini kaplasın */
-    max-width: 600px; /* Maksimum 600 piksel genişliğe kadar büyüsün */
-    height: auto; /* Oranını korur */
-    display: block; /* Ortalamayı sağlar */
-    margin: 0 auto 20px auto; /* Resmi ortalar ve altına boşluk bırakır */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.story-content img, .story-content-tekli img {
+    width: 320px;
+    max-width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 
-.story-content p {
-    flex: 1;
+.story-content p, .story-content-tekli p {
+    font-size: 1.15em;
+    color: #333;
+    text-align: center;
+    margin: 0;
 }
 
 .main-footer {
     text-align: center;
     padding: 20px;
-    background-color: #4682b4;
+    background-color: #204e1f;
     color: rgb(255, 255, 255);
     margin-top: 40px;
 }
