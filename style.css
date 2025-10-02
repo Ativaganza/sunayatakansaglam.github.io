@@ -45,14 +45,21 @@ body {
     margin: 40px auto;
     padding: 32px 24px;
     background: #fffbe7;
+    /* Ahşap dokusu için arka plan ve renk değişikliği */
+    background: #d2b48c; /* Ahşap rengi */
+    border: 4px solid #8b5a2b; /* Koyu ahşap çerçeve */
+    padding: 28px 24px;
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    /* Daha belirgin bir gölge */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3), inset 0 0 15px rgba(0,0,0,0.2);
 }
 
 .story-section h2 {
     font-family: 'Oswald', sans-serif;
     font-size: 2em;
     color: #4e3b1f;
+    color: #4a2c0c; /* Daha koyu kahverengi */
     margin-bottom: 18px;
     text-align: center;
 }
@@ -64,16 +71,18 @@ body {
     gap: 18px;
 }
 
-.story-content img, .story-content-tekli img {
-    width: 320px;
+.story-content img,
+.story-content-tekli img {
     max-width: 100%;
     border-radius: 14px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 
+
 .story-content p, .story-content-tekli p {
     font-size: 1.15em;
     color: #333;
+    color: #4a2c0c; /* Yazı rengini de ahşap tonuna uygun hale getirelim */
     text-align: center;
     margin: 0;
 }
@@ -83,18 +92,11 @@ body {
     padding: 20px;
     background-color: #204e1f;
     color: rgb(255, 255, 255);
-    margin-top: 40px;
-}
-.story-content img {
-    width: 400px; /* Daha büyük bir boyut deneyelim */
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 /* Animasyon için anahtar kareler */
 @keyframes slideInUp {
     from {
-        transform: translateY(200px);
+        transform: translateY(50px); /* Daha kısa bir mesafe, daha zarif bir giriş sağlar */
         opacity: 0;
     }
     to {
@@ -106,11 +108,13 @@ body {
 /* Her bölüme animasyon ekleme */
 .story-section {
     background-color: rgba(255, 255, 255, 0.9);
+    /* background-color: rgba(255, 255, 255, 0.9); Bu satırı yukarıda değiştirdiğimiz için silebiliriz veya yorum satırı yapabiliriz */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
-    animation: slideInUp 1s ease-out forwards;
+    animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Süreyi kısalttık ve yumuşak bir geçiş eğrisi ekledik */
+    animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     opacity: 0; /* Başlangıçta gizli olsun */
 }
 
@@ -159,6 +163,13 @@ body {
     text-shadow: none;
     overflow: hidden; /* Eğer görsel başlık kutusundan dışarı taşarsa gizler */
 }
+
+/* Header içindeki parçacık efekti ve metinler için z-index ayarı */
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
 .fotograf-buton {
     padding: 10px 24px;
     background-color: #f8f2e9;
@@ -240,6 +251,12 @@ body {
     right: 32px;
     z-index: 99;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+.maymun-kose img {
+    border-radius: 50%;
     transition: transform 0.3s;
 }
 
@@ -302,6 +319,10 @@ body {
     border-radius: 12px;
     overflow: hidden; /* Köşeleri yuvarlak göstermek için */
     display: none; /* Varsayılan olarak gizli */
+}
+#spotify-player-container iframe {
+    border-radius: 12px;
+    border: none;
 }
 
 /* Sadece 768px'den geniş ekranlarda göster */
@@ -402,7 +423,7 @@ body {
     padding: 25px;
     border-radius: 15px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Daha yumuşak bir geçiş eğrisi */
 }
 
 .dream-card:hover {
@@ -432,7 +453,7 @@ body {
     z-index: 1000;
     background-color: transparent;
     padding: 20px 0;
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.4s ease-in-out, padding 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* 'all' yerine sadece değişen özellikleri animasyona dahil ediyoruz */
 }
 
 #main-nav.scrolled {
@@ -484,9 +505,66 @@ body {
     width: 0;
     height: 2px;
     background-color: #ffa500;
-    transition: width 0.3s ease;
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Daha yumuşak bir geçiş eğrisi */
 }
 
 #main-nav ul li a:hover::after {
     width: 100%;
+}
+
+/* Sabit Geri Sayım Sayacı Stilleri */
+#countdown-container {
+    position: fixed;
+    top: 25px; /* Navigasyon menüsü ile çakışmaması için boşluk */
+    left: 20px;
+    background-color: rgba(255, 251, 231, 0.95); /* Navbar ile uyumlu arka plan */
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 1001; /* Navbar'ın (1000) bile üstünde olsun */
+    text-align: center;
+    display: none; /* Varsayılan olarak gizli, JS ile gösterilecek */
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.countdown-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9em;
+    color: #4a2c0c;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#countdown-timer {
+    display: flex;
+    gap: 10px;
+}
+
+.timer-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 45px;
+}
+
+.timer-unit span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+    color: #4a2c0c;
+    line-height: 1;
+}
+
+.timer-unit p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 0.8em;
+    color: #4e3b1f;
+    margin: 0;
+}
+
+/* Sadece 768px'den geniş ekranlarda göster */
+@media (max-width: 768px) {
+    #countdown-container {
+        display: none !important; /* Mobil cihazlarda tamamen gizle */
+    }
 }
