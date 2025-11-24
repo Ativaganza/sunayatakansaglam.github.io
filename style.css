@@ -25,12 +25,14 @@ body {
 
 .main-header h1 {
     font-family: 'Dancing Script', cursive; /* Başlık fontunu değiştiririz */
-    font-size: 3.5em; /* Başlığı daha da büyütürüz */
+    font-size: 4.5em; /* Başlığı daha da büyütürüz */
     margin: 0;
 }
 
-.main-header p {
-    font-size: 1.5em; /* Açıklama yazısını büyütürüz */
+.main-header p {    
+    font-size: 1.8em; /* Açıklama yazısını büyütürüz */
+    font-family: 'Oswald', sans-serif;
+    color: #870000;
     margin: 10px 0 0;
 }
 
@@ -427,8 +429,8 @@ body {
 }
 
 .dream-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.5), 0 12px 24px rgba(0,0,0,0.1); /* Turuncu ışıltı ve normal gölge */
 }
 
 .dream-card i {
@@ -567,4 +569,95 @@ body {
     #countdown-container {
         display: none !important; /* Mobil cihazlarda tamamen gizle */
     }
+}
+/* --- FOTOĞRAF KÖŞESİ STİLLERİ --- */
+
+.photo-corner-section h2 {
+    font-family: 'Oswald', sans-serif; /* Başlığın fontunu kontrol et, Oswald zaten var */
+    font-size: 2.5em; /* Başlığı biraz büyütelim */
+    color: #4a2c0c; /* Koyu kahverengi */
+    text-align: center; /* Başlığı ortala */
+    margin-bottom: 15px; /* Başlık ile altındaki metin arasına boşluk */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Hafif gölge */
+    letter-spacing: 1px; /* Harf aralığı */
+
+}.photo-corner-section .ozlem-text {
+    font-family: 'Oswald', sans-serif; /* Başlığın fontunu kontrol et, Oswald zaten var */
+    font-size: 1.5em; /* Başlığı biraz büyütelim */
+    color: #750000; /* Koyu kahverengi */
+    text-align: center; /* Başlığı ortala */
+    margin-bottom: 15px; /* Başlık ile altındaki metin arasına boşluk */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Hafif gölge */
+    letter-spacing: 1px; /* Harf aralığı */
+}
+
+
+.photo-grid {
+    display: grid;
+    /* Dağınık kolaj için: ızgara yapısı ve küçük fotoğraf boyutları */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+    grid-auto-rows: 120px; /* Varsayılan fotoğraf yüksekliği */
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.photo-item {
+    overflow: hidden; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    
+    /* HTML'de tanımlanan --rotation değişkeni ile eğim verilir */
+    transform: rotate(calc(var(--rotation) * 1deg)); 
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s;
+    cursor: zoom-in;
+}
+
+.photo-item:hover {
+    /* Hover'da eğimi düzelt ve hafifçe yükselt */
+    transform: rotate(0deg) scale(1.05); 
+    box-shadow: 0 10px 20px rgba(255, 165, 0, 0.6); /* Turuncu ışıltılı gölge */
+    z-index: 10; /* Üstte gözükmesi için */
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmi kutuya sığdırır */
+    display: block;
+    transition: transform 0.5s;
+}
+
+/* Büyük fotoğraflar için özel stil (kolajda öne çıkması için) */
+.photo-large {
+    grid-column: span 2; /* 2 sütun genişliğinde yer kapla */
+    grid-row: span 2; /* 2 satır yüksekliğinde yer kapla */
+}
+
+/* Mobil uyumluluk: Daha düzenli grid */
+@media (max-width: 700px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 150px;
+        gap: 10px;
+    }
+    .photo-large {
+        /* Mobil'de büyük fotoğraf özelliğini iptal et */
+        grid-column: span 1; 
+        grid-row: span 1;
+    }
+}/* --- ÖZEL İMLEÇ STİLİ --- */
+
+/* Tüm sayfada (body) özel imleci kullan */
+body {
+    /* İndirdiğiniz görselin dosya adı: cursor-monkey.png */
+    /* Hotspot (tıklama noktası) için 16 16, 32x32px görselin tam ortasıdır. */
+    cursor: url('cursor-monkey.png') 16 16, default;
+}
+
+/* Etkileşimli öğeler (linkler, butonlar, resimler vb.) için imleci tekrar el şekline döndürerek kullanıcı deneyimini iyileştirme */
+a, 
+button, 
+input[type="submit"], 
+.photo-item {
+    cursor: pointer; 
 }
